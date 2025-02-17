@@ -10,7 +10,7 @@ public class TouristAttraction {
 
 
     //constructor
-    public TouristAttraction(String name, String description){
+    public TouristAttraction(String name, String description, String city, List tags){
         this.name = name;
         this.description = description;
         this.city = city;
