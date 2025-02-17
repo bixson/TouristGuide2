@@ -1,0 +1,239 @@
+@import url('https://fonts.googleapis.com/css2?family=American+Typewriter:wght@700&family=Andale+Mono&display=swap');
+
+body {
+    font-family: 'Andale Mono', monospace, Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #174041;
+    color: #333;
+    scroll-behavior: smooth; /* smooth scrolling yesss, not needed but nice */
+}
+
+header {
+    background: linear-gradient(to bottom, #1C5253, #174041);
+    color: white;
+    padding: 1em 0;
+    text-align: center;
+    border-bottom: 2px solid rgba(190,183,164,0.5); /* line */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+}
+
+header h1 {
+    font-weight: bold;
+}
+
+main {
+    padding: 2em;
+}
+
+h1, h2 {
+    font-family: 'American Typewriter', serif;
+    color: #BEB7A4;
+    text-align: center;
+}
+
+/* Sections styling */
+.description, .attractions {
+    max-width: 1100px;
+    width: 100%;
+    margin: 2em auto;
+    padding: 2em;
+    background-color: #174546;
+    border: 1px solid rgba(190,183,164,0.5);
+    border-radius: 8px; /* cool rounded corners */
+    box-shadow: 0 4px 10px rgba(0,0,0,0.2); /* nice shadow */
+    overflow: hidden;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+}
+
+li {
+    margin: 0.5em 0;
+}
+
+a {
+    font-family: 'American Typewriter', serif;
+    color: #D2D1CB;
+    text-decoration: none;
+}
+
+a:hover {
+    color: #925E78;
+    text-decoration: none;
+}
+
+p {
+    color: #D2D1CB;
+    text-decoration: none;
+    line-height: 1.6;
+}
+
+/* Tourist attractions [images] */
+.attractions ul {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* force-fits 3 per row */
+    gap: 2em;
+    padding: 1.5em;
+    justify-content: center; /* center img */
+    max-width: 100%;
+    margin: 0 auto; /* center grid */
+}
+
+
+.attractions li {
+    text-align: center;
+    width: fit-content;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1em;
+}
+
+.attractions img {
+    width: 350px;
+    max-width: 350px;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 10px; /* super soft edges */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.attractions img:hover {
+    transform: scale(1.05); /* zoom that shit */
+    box-shadow: 0 8px 15px rgba(255, 255, 255, 0.2); /* box glow */
+}
+
+.attractions a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-decoration: none;
+    width: 100%;
+}
+
+/* force img-text down (img collides without) */
+.attractions a span {
+    margin-top: 0.5em;
+    display: block;
+}
+
+/* Footer */
+footer {
+    background: linear-gradient(to bottom, #1C5253, #174041);
+    color: #D2D1CB;
+    padding: 0.5em 0;
+    width: 100%;
+    margin-top: 0.5em;
+    border-top: 2px solid rgba(190,183,164,0.5);
+    box-shadow: 0 -2px 5px rgba(0,0,0,0.2);
+}
+
+.footer-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 90%;
+    margin: 0 auto;
+    padding: 0.2em 0;
+}
+
+/* API Endpoints */
+.footer-api {
+    text-align: center;
+    flex: 1;
+}
+
+.footer-api h2 {
+    font-size: 1.4em;
+    font-family: 'American Typewriter', serif;
+    color: #BEB7A4;
+    margin-bottom: 0.5em;
+}
+
+.footer-api .all-attractions {
+    color: #D2D1CB;
+    text-decoration: none;
+    font-size: 1em;
+    display: block;
+    margin-bottom: 1em;
+    transition: color 0.2s ease-in-out;
+}
+
+.footer-api .all-attractions:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
+.footer-api .grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 0.6em;
+    max-width: 420px;
+    margin: 0 auto;
+}
+
+
+.footer-api .grid a {
+    background: rgba(255, 255, 255, 0.1);
+    padding: 0.4em 1.2em;
+    border-radius: 8px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 1em;
+    color: #D2D1CB;
+    transition: all 0.2s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    white-space: nowrap;
+}
+
+.footer-api .grid a:hover {
+    background: rgba(255, 255, 255, 0.2); /* brighter */
+    transform: translateY(-2px); /* nice animation */
+    color: #fff;
+}
+
+/* Contact Info */
+.footer-contact {
+    text-align: right;
+    flex: 1;
+    margin-right: 10%;
+    align-self: flex-end; /* force down to button lvl */
+}
+
+.footer-contact p {
+    margin: 0.5em 0;
+    font-size: 1em;
+}
+
+.footer-contact a {
+    display: inline; /* no extra hoverable areas [problemos, sí]  */
+    color: #D2D1CB;
+    text-decoration: none;
+    font-size: 1em;
+}
+
+.footer-contact a:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
+.footer-copyright {
+    width: 100%;
+    text-align: center;
+    margin-top: 0.2em;
+    font-size: 0.75em;
+    color: rgba(210,209,203,0.8);
+    opacity: 0.7;
+}
+
+/* for the small ones :* */
+@media (max-width: 1024px) {
+    .attractions ul {
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    }
+}
