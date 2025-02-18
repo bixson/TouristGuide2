@@ -38,6 +38,7 @@ public class TouristRepository {
         return new ArrayList<>(touristAttractionList);
     }
 
+
     // Get specific attraction
     public TouristAttraction getTouristAttraction(String name) {
         for (TouristAttraction attraction : touristAttractionList) {
@@ -48,10 +49,16 @@ public class TouristRepository {
         return null;
     }
 
+
+
+
+
     // Add/create to list method
     public void addTouristAttraction(TouristAttraction touristAttraction) {
         touristAttractionList.add(touristAttraction);
     }
+
+
 
     // Update specific attraction
     public void updateTouristAttraction(String name, TouristAttraction touristAttraction) {
