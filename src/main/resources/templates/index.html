@@ -1,10 +1,117 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>Title</title>
+    <title>Tourist Guide</title>
+    <link rel="stylesheet" th:href="@{/css/main.css}">
 </head>
+
 <body>
+<header>
+    <a href="/admin" class="admin-button">Admin</a>
+    <h1>Welcome to the Tourist Guide</h1>
+</header>
+
+<main>
+    <section class="description">
+        <h2>About</h2>
+        <p>Discover Copenhagen’s most iconic attractions with our tourist guide. Whether you're drawn to historic landmarks,
+            vibrant cultural hubs, or scenic spots, we help you explore the best the city has to offer.
+            Plan your visit, find hidden gems, and make the most of your Copenhagen experience...</p>
+    </section>
+
+    <section class="attractions">
+        <h2>Selected Tourist Attractions</h2>
+        <ul>
+            <li>
+                <a href="https://www.visitcopenhagen.dk/koebenhavn/planlaeg-din-tur/den-lille-havfrue-gdk586951" target="_blank">
+                    <img src="images/den_lille_havfrue.jpg" alt="Den Lille Havfrue">
+                    <span>Den Lille Havfrue</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.visitcopenhagen.com/copenhagen/planning/amalienborg-palace-gdk492887" target="_blank">
+                    <img src="images/amalienborg.jpg" alt="Amalienborg">
+                    <span>Amalienborg</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.visitcopenhagen.com/copenhagen/planning/kings-garden-gdk420899" target="_blank">
+                    <img src="images/kongens_nytorv.jpg" alt="Kongens Nytorv">
+                    <span>Kongens Nytorv</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://mit.kea.dk/studieliv-og-faciliteter/studieliv/fredagsbar" target="_blank">
+                    <img src="images/guldbar.jpg" alt="GULDBAR">
+                    <span>Guldbar</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.visitcopenhagen.com/copenhagen/planning/christiania-gdk957761" target="_blank">
+                    <img src="images/christania.jpg" alt="Christiania">
+                    <span>Christiania</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.visitcopenhagen.dk/koebenhavn/planlaeg-din-tur/nyhavn-gdk474735" target="_blank">
+                    <img src="images/nyhavn.jpg" alt="Nyhavn">
+                    <span>Nyhavn</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.visitcopenhagen.com/copenhagen/planning/copenhagen-zoo-gdk1077921" target="_blank">
+                    <img src="images/Zoo.jpg" alt="Zoologisk Have">
+                    <span>Zoologisk Have</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.amagercentret.dk/" target="_blank">
+                    <img src="images/amagercentret.jpeg" alt="Amager Centret">
+                    <span>Amager Centret</span>
+                </a>
+            </li>
+            <li>
+                <a href="https://www.visitcopenhagen.com/copenhagen/planning/torvehallerne-gdk545401" target="_blank">
+                    <img src="images/Torvehallene.jpg" alt="TorvehallerneKBH">
+                    <span>Torvehallerne</span>
+                </a>
+            </li>
+        </ul>
+    </section>
+</main>
+
+
+<footer>
+    <div class="footer-container">
+
+        <div class="footer-api">
+            <h2>API Endpoints</h2>
+            <a class="all-attractions" href="http://localhost:8080/attractions">View All Tourist Attractions</a>
+            <div class="grid">
+                <a href="http://localhost:8080/attractions/Den%20Lille%20Havfrue">Den Lille Havfrue</a>
+                <a href="http://localhost:8080/attractions/Amalienborg">Amalienborg</a>
+                <a href="http://localhost:8080/attractions/Kongens%20Nytorv">Kongens Nytorv</a>
+                <a href="http://localhost:8080/attractions/Guldbar">Guldbar</a>
+                <a href="http://localhost:8080/attractions/Christania">Christiania</a>
+                <a href="http://localhost:8080/attractions/Nyhavn">Nyhavn</a>
+
+
+            </div>
+        </div>
+
+
+
+        <div class="footer-contact">
+            <p>Contact us at:</p>
+            <p><a href="tel:+4512345678">+45 11 22 33 44</a></p>
+            <p><a href="mailto:donotcontactus@touristguide.dk">donotcontactus@touristguide.dk</a></p>
+        </div>
+    </div>
+
+
+    <p class="footer-copyright">© 2025 Tourist Guide</p>
+</footer>
 
 </body>
 </html>

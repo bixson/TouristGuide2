@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Panel</title>
+  <link rel="stylesheet" th:href="@{/css/main.css}">
+  <link rel="stylesheet" th:href="@{/css/admin.css}">
+</head>
+<body>
+
+<header>
+  Admin Panel
+  <a href="/" class="admin-button">Back to front page</a>
+</header>
+
+<main class="container">
+  <section class="box">
+    <h2><i>Hi there, welcome back!</i></h2>
+
+    <div class="button-container">
+      <a href="/attractions" class="full-width-button">View Attractions</a>
+      <a href="/addAttraction" class="full-width-button">Add Attraction</a>
+      <a href="/updateAttraction" class="full-width-button">Update Attraction</a>
+      <a href="/" class="full-width-button back-button">Back to Main Page</a>
+    </div>
+
+  </section>
+</main>
+
+</body>
+</html>
