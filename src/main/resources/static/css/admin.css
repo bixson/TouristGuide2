@@ -24,7 +24,7 @@
 body {
     background-color: #133D40;
     color: #D5CCB5;
-    font-family: inherit;
+    font-family: "Georgia", serif !important;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -35,18 +35,17 @@ body {
 
 header {
     width: 100%;
-    background: rgba(23, 64, 65, 0.95);
+    background: rgba(23, 64, 65, 0.95) !important;
     padding: 30px 0;
     text-align: center;
     font-size: 36px;
     font-weight: bold;
     color: #D5CCB5;
     box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
-    font-family: "Georgia", serif;
+    font-family: "Georgia", serif !important;
     text-transform: uppercase;
 }
 
-/* admin panel Box */
 .container {
     background-color: rgba(23, 64, 65, 0.9);
     padding: 40px;
@@ -93,24 +92,16 @@ h2 {
 
 .full-width-button.view-button:hover {
     background-color: #66C7F4;
-    transform: scale(1.05);
 }
 
 .full-width-button.add-button:hover {
     background-color: #218838;
-    transform: scale(1.05);
 }
 
 .full-width-button.back-button:hover {
     background-color: #9E2A2B;
-    transform: scale(1.05);
 }
 
 .full-width-button:hover {
     background-color: #E3C567;
-    transform: scale(1.05);
 }
-
-
-
-

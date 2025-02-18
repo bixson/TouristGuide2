@@ -21,6 +21,16 @@
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 
+header h1, h2 {
+    font-family: "Georgia", serif !important;
+    color: #D5CCB5;
+}
+/* FORCE, FORCE, FORCE */
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Georgia", serif !important;
+}
+
+
 .container {
     display: flex;
     justify-content: center;

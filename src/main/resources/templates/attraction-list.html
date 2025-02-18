@@ -8,10 +8,9 @@
 </head>
 <body>
 <header>
-    <h1>Tourist Attractions</h1>
+    <h1>TOURIST ATTRACTION</h1>
     <a href="/admin" class="admin-button">Admin</a>
 </header>
-
 
 <main class="container">
     <section class="box">
@@ -25,24 +24,26 @@
             </tr>
             </thead>
             <tbody>
-
             <tr th:each="attraction : ${attractions}">
                 <td th:text="${attraction.name}"></td>
                 <td th:text="${attraction.city}"></td>
                 <td class="button-group">
-                    <a th:href="@{/attractions/edit(name=${attraction.name})}">
+
+                    <a th:href="@{'/' + ${attraction.name} + '/edit'}">
                         <button class="custom-button edit-button">
                             <img th:src="@{/images/edit.png}" src="/images/edit.png" alt="Edit" class="button-icon">
                             Edit
                         </button>
                     </a>
-                    <a th:href="@{/attractions/tags(name=${attraction.name})}">
+
+                    <a th:href="@{'/' + ${attraction.name} + '/tags'}">
                         <button class="custom-button tag-button">
                             <img th:src="@{/images/tag.png}" src="/images/tag.png" alt="Tags" class="button-icon">
                             Tags
                         </button>
                     </a>
-                    <a th:href="@{/attractions/delete(name=${attraction.name})}">
+
+                    <a th:href="@{'/' + ${attraction.name} + '/delete'}">
                         <button class="custom-button delete-button">
                             <img th:src="@{/images/bin.png}" src="/images/bin.png" alt="Delete" class="button-icon">
                             Delete
@@ -50,9 +51,9 @@
                     </a>
                 </td>
             </tr>
-
             </tbody>
         </table>
+
 
         <p class="end-of-list"><i>End of list</i></p>
 
