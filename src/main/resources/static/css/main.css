@@ -1,5 +1,31 @@
 @import url('https://fonts.googleapis.com/css2?family=American+Typewriter:wght@700&family=Andale+Mono&display=swap');
 
+/* forgot this s*** */
+.admin-button {
+    position: absolute;
+    top: 15px;
+    right: 20px;
+    background-color: #1C5253;
+    color: #BEB7A4;
+    padding: 6px 12px;
+    font-size: 14px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: bold;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.2s ease-in-out;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.admin-button:hover {
+    background-color: #136D70;
+    color: #BEB7A4;
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+
+
 body {
     font-family: 'Andale Mono', monospace, Arial, sans-serif;
     margin: 0;
@@ -10,6 +36,7 @@ body {
 }
 
 header {
+    position: relative; /* allows admin button to be moved */
     background: linear-gradient(to bottom, #1C5253, #174041);
     color: white;
     padding: 1em 0;
@@ -17,6 +44,7 @@ header {
     border-bottom: 2px solid rgba(190,183,164,0.5); /* line */
     box-shadow: 0 4px 10px rgba(0,0,0,0.2);
 }
+
 
 header h1 {
     font-weight: bold;

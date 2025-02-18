@@ -1,0 +1,143 @@
+.admin-button {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    background-color: #1C5253;
+    color: #BEB7A4;
+    padding: 6px 12px;
+    font-size: 14px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: bold;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.2s ease-in-out;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.admin-button:hover {
+    background-color: #136D70;
+    color: #BEB7A4;
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    min-height: 90vh; /* 90% */
+    padding-top: 10vh; /* 10% */
+}
+
+/* main box styling */
+.box {
+    background-color: rgba(23, 64, 65, 0.9);
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 6px 20px rgba(255, 255, 255, 0.1);
+    width: 900px;
+    text-align: center;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+}
+.table th, .table td {
+    padding: 15px;
+    text-align: center;
+    border-bottom: 1px solid rgba(190,183,164,0.5);
+    color: #D5CCB5;
+}
+.table th {
+    background-color: #1C5253;
+    color: #BEB7A4;
+    font-size: 18px;
+}
+/* fix row alignment (buttons stay inside row, no jumping) */
+.table td {
+    vertical-align: middle;
+}
+
+
+/* fix button spacing inside table */
+.button-group {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+.custom-button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    width: 110px;
+    height: 40px;
+    border-radius: 8px;
+    border: none;
+    font-size: 14px;
+    font-weight: bold;
+    cursor: pointer;
+    padding: 5px 10px;
+    transition: all 0.2s ease-in-out;
+}
+.custom-button:hover {
+    transform: scale(1.05); /* zoom 105% */
+    filter: brightness(90%);
+}
+/* same size for buttons */
+.custom-button img {
+    width: 18px;
+    height: 18px;
+}
+
+/* button colors [bckgrnd & txt ] */
+.edit-button { background-color: #6C757D; color: white; }
+.delete-button { background-color: #DC3545; color: white; }
+.tag-button { background-color: #FFA500; color: white; }
+
+
+.add-button {
+    background-color: #28a745;
+    color: #E6DDC7;
+    font-size: 16px;
+    font-weight: bold;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 160px;
+    height: 45px;
+}
+
+.add-button:hover {
+    background-color: #218838;
+}
+
+.end-of-list {
+    margin-top: 20px;
+    font-style: italic;
+    color: #E6DDC7;
+    text-align: center;
+}
+
+.button-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.admin-panel-button {
+    background-color: #136D70;
+    color: #E6DDC7;
+}
+
+.admin-panel-button:hover {
+    background-color: #0F5053; /* slightly darker */
+}
