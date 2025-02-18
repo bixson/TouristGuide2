@@ -36,16 +36,16 @@
                             Edit
                         </button>
                     </a>
-                    <a th:href="@{/attractions/delete(name=${attraction.name})}">
-                        <button class="custom-button delete-button">
-                            <img th:src="@{/images/bin.png}" src="/images/bin.png" alt="Delete" class="button-icon">
-                            Delete
-                        </button>
-                    </a>
                     <a th:href="@{/attractions/tags(name=${attraction.name})}">
                         <button class="custom-button tag-button">
                             <img th:src="@{/images/tag.png}" src="/images/tag.png" alt="Tags" class="button-icon">
                             Tags
+                        </button>
+                    </a>
+                    <a th:href="@{/attractions/delete(name=${attraction.name})}">
+                        <button class="custom-button delete-button">
+                            <img th:src="@{/images/bin.png}" src="/images/bin.png" alt="Delete" class="button-icon">
+                            Delete
                         </button>
                     </a>
                 </td>

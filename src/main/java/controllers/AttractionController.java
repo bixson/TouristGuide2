@@ -42,4 +42,14 @@ public class AttractionController {
     public String showAdminPage() {
         return "admin";
     }
+
+    @GetMapping("/addAttraction")
+    public String showAddAttractionPage() {
+        return "addAttraction";
+    }
+
+    @GetMapping("/updateAttraction")
+    public String showUpdateAttractionPage() {
+        return "updateAttraction";
+    }
 }
