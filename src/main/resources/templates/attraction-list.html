@@ -29,7 +29,7 @@
                 <td th:text="${attraction.city}"></td>
                 <td class="button-group">
 
-                    <a th:href="@{'/' + ${attraction.name} + '/edit'}">
+                    <a th:href="@{'/attractions/' + ${attraction.name} + '/edit'}">
                         <button class="custom-button edit-button">
                             <img th:src="@{/images/edit.png}" src="/images/edit.png" alt="Edit" class="button-icon">
                             Edit

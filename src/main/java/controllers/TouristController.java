@@ -57,6 +57,8 @@ public class TouristController {
             return "redirect:/attractions";
         }
         model.addAttribute("touristAttraction", attraction);
+        model.addAttribute("cities", touristService.getAllCities());
+        model.addAttribute("allTags", touristService.getAllTags());
         return "update-attraction";
     }
 
@@ -84,7 +86,7 @@ public class TouristController {
         return "select-attraction";
     }
 
-    @SuppressWarnings("SpringMVCViewInspection") //gives random MVC resolve error. That error can go to ****
+    @SuppressWarnings("SpringMVCViewInspection") //gives the 'MVC resolve' error. That error can go to ****
     @PostMapping("/select-attraction")
     public String redirectToEdit(@RequestParam String selectedAttraction) {
         return "redirect:/attractions/" + selectedAttraction + "/edit";
