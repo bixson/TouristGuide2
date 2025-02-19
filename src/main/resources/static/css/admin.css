@@ -16,7 +16,7 @@
 
 .admin-button:hover {
     background-color: #136D70;
-    color: #BEB7A4;
+    color: #fff;
     transform: scale(1.05);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
@@ -31,6 +31,7 @@ body {
     justify-content: flex-start;
     height: 100vh;
     margin: 0;
+    scroll-behavior: smooth;
 }
 
 header {
@@ -41,7 +42,7 @@ header {
     font-size: 36px;
     font-weight: bold;
     color: #D5CCB5;
-    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
     font-family: "Georgia", serif !important;
     text-transform: uppercase;
 }
@@ -92,16 +93,20 @@ h2 {
 
 .full-width-button.view-button:hover {
     background-color: #66C7F4;
+    color: #fff;
 }
 
 .full-width-button.add-button:hover {
     background-color: #218838;
+    color: #fff;
 }
 
 .full-width-button.back-button:hover {
     background-color: #9E2A2B;
+    color: #fff;
 }
 
 .full-width-button:hover {
     background-color: #E3C567;
+    color: #fff;
 }

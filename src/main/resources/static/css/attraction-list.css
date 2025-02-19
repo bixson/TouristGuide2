@@ -16,7 +16,7 @@
 
 .admin-button:hover {
     background-color: #136D70;
-    color: #BEB7A4;
+    color: white;
     transform: scale(1.05);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }

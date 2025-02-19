@@ -50,7 +50,7 @@ public class TouristController {
         return "tags";
     }
 
-    @GetMapping("/{name}/edit")
+    @GetMapping("/attractions/{name}/edit")
     public String showEditForm(@PathVariable String name, Model model) {
         TouristAttraction attraction = touristService.getTouristAttraction(name);
         if (attraction == null) {
@@ -84,8 +84,11 @@ public class TouristController {
         return "select-attraction";
     }
 
+    @SuppressWarnings("SpringMVCViewInspection") //gives random MVC resolve error. That error can go to ****
     @PostMapping("/select-attraction")
     public String redirectToEdit(@RequestParam String selectedAttraction) {
-        return "redirect:/" + selectedAttraction + "/edit";
+        return "redirect:/attractions/" + selectedAttraction + "/edit";
     }
+
+
 }

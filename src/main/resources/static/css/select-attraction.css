@@ -6,7 +6,7 @@ header {
     font-size: 14px !important;
     font-weight: bold !important;
     color: #D5CCB5 !important;
-    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2) !important;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2) !important;
     font-family: "Georgia", serif !important;
     text-transform: uppercase !important;
 }
@@ -26,6 +26,7 @@ body {
     justify-content: flex-start;
     height: 100vh;
     margin: 0;
+    scroll-behavior: smooth;
 }
 
 .form-container {
