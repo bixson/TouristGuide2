@@ -18,9 +18,11 @@ public class TouristService {
         return touristRepository.getAllTouristAttractions();
     }
 
-
     public TouristAttraction getTouristAttraction(String name) {
-        return touristRepository.getTouristAttraction(name);
+        Optional<TouristAttraction> attraction = touristRepository.getAllTouristAttractions().stream()
+                .filter(a -> a.getName().equalsIgnoreCase(name))
+                .findFirst();
+        return attraction.orElse(null);
     }
 
     public void addTouristAttraction(TouristAttraction touristAttraction) {

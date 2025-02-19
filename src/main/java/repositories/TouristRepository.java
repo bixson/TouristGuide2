@@ -78,10 +78,11 @@ public class TouristRepository {
     }
 
     public List<String> getAllCities() {
-        return List.of("København", "Frederiksberg", "Amagerbro", "Odense", "Aalborg", "Aarhus", "Randers");
+        return List.of("Aalborg", "Aarhus", "Amagerbro", "Bornholm", "Esbjerg", "Frederiksberg", "København", "Odense", "Randers", "Roskilde");
     }
 
     public List<String> getAllTags() {
-        return List.of("Udendørs", "Kunst", "Historisk", "Museum", "Natteliv", "Shopping", "Mad", "Børnevenligt");
+        return List.of("Arkitektur", "Børnevenligt", "Eventyr", "Festival", "Historisk", "Håndværk", "Kunst", "Luksus", "Mad", "Museum",
+                                    "Musik", "Natur", "Natteliv", "Shopping", "Sport", "Strand", "Teknologi", "Udendørs", "Vandaktiviteter", "Wellness");
     }
 }
