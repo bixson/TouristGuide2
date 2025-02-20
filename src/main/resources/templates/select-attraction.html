@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>UPDATE SELECTION</title>
+  <link rel="stylesheet" th:href="@{/css/main.css}">
+  <link rel="stylesheet" th:href="@{/css/admin.css}">
+  <link rel="stylesheet" th:href="@{/css/select-attraction.css}">
+</head>
+<body>
+
+<header>
+  <h1>Select Attraction to Update</h1>
+  <a href="/admin" class="admin-button">Back to Admin Panel</a>
+</header>
+
+<main class="container">
+  <section class="box">
+    <h2>Choose an Attraction</h2>
+
+    <form th:action="@{/select-attraction}" method="post" class="form-container">
+      <label for="attraction-select">Select an attraction:</label>
+      <select id="attraction-select" name="selectedAttraction" required>
+        <option value="" disabled selected>Select an attraction...</option>
+        <option th:each="attraction : ${attractions}"
+                th:value="${attraction.name}"
+                th:text="${attraction.name}">
+        </option>
+      </select>
+      <button type="submit" class="go-button">
+        <img th:src="@{/images/go.png}" src="/images/go.png" alt="Go">
+      </button>
+    </form>
+
+  </section>
+</main>
+
+</body>
+</html>

@@ -3,15 +3,13 @@ package controllers;
 import models.TouristAttraction;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 import services.TouristService;
 
-import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.List;
 
+@Controller
 public class TouristController {
 
     private final TouristService touristService;
@@ -19,60 +17,80 @@ public class TouristController {
     public TouristController(TouristService touristService) {
         this.touristService = touristService;
     }
+
     @GetMapping("/attractions")
-    public String showAllTouristAttractions(Model model){
+    public String showAllTouristAttractions(Model model) {
         List<TouristAttraction> attractions = touristService.getAllTouristAttractions();
+        attractions.sort(Comparator.comparing(TouristAttraction::getName)); // sort attractions by name [more nice @attraction-list.html]
         model.addAttribute("attractions", attractions);
-        return "attractionList";
+        return "attraction-list";
     }
 
-    @GetMapping("/{name}/tags")
-    public String showAttractionTags(@PathVariable String name, Model model){
-        TouristAttraction attraction = touristService.getTouristAttraction(name);
-        if (attraction == null) {
-            return "tags";
-        }
-        model.addAttribute("attraction", attraction);
-        model.addAttribute("tags", attraction.getTags());
-        return "tags";
-    }
     @GetMapping("/add")
-    public String showAddAttractionForm(String name, String description, String city, List tags, Model model) {
+    public String showAddAttractionForm(Model model) {
         model.addAttribute("touristAttraction", new TouristAttraction());
+        model.addAttribute("cities", touristService.getAllCities());
         return "add-attraction";
     }
 
     @PostMapping("/save")
     public String saveTouristAttraction(@ModelAttribute TouristAttraction touristAttraction) {
         touristService.addTouristAttraction(touristAttraction);
-        return "redirect:/attractionList";
+        return "redirect:/attractions";
     }
 
-    @GetMapping("/{name}/edit")
+    @GetMapping("/{name}/tags")
+    public String showAttractionTags(@PathVariable String name, Model model) {
+        TouristAttraction attraction = touristService.getTouristAttraction(name);
+        if (attraction == null) {
+            return "redirect:/attractions";
+        }
+        model.addAttribute("attraction", attraction);
+        model.addAttribute("tags", attraction.getTags());
+        return "tags";
+    }
+
+    @GetMapping("/attractions/{name}/edit")
     public String showEditForm(@PathVariable String name, Model model) {
         TouristAttraction attraction = touristService.getTouristAttraction(name);
         if (attraction == null) {
-            return "redirect:/attractionList";
+            return "redirect:/attractions";
         }
         model.addAttribute("touristAttraction", attraction);
+        model.addAttribute("cities", touristService.getAllCities());
+        model.addAttribute("allTags", touristService.getAllTags());
         return "update-attraction";
     }
 
     @PostMapping("/{name}/update")
     public String updateTouristAttraction(@PathVariable String name, @ModelAttribute TouristAttraction touristAttraction) {
         touristService.updateTouristAttraction(name, touristAttraction);
-        return "redirect:/attractionList";
+        return "redirect:/attractions";
     }
 
     @GetMapping("/{name}/delete")
     public String deleteTouristAttraction(@PathVariable String name) {
         touristService.deleteTouristAttraction(name);
-        return "redirect:/attractionList";
+        return "redirect:/attractions";
     }
 
     @GetMapping("/admin")
     public String showAdminPage() {
         return "admin";
     }
+
+    @GetMapping("/select-attraction")
+    public String showSelectAttractionPage(Model model) {
+        List<TouristAttraction> attractions = touristService.getAllTouristAttractions();
+        model.addAttribute("attractions", attractions);
+        return "select-attraction";
+    }
+
+    @SuppressWarnings("SpringMVCViewInspection") //gives the 'MVC resolve' error. That error can go to ****
+    @PostMapping("/select-attraction")
+    public String redirectToEdit(@RequestParam String selectedAttraction) {
+        return "redirect:/attractions/" + selectedAttraction + "/edit";
+    }
+
 
 }

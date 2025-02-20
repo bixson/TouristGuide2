@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>NEW ATTRACTION</title>
+    <link rel="stylesheet" th:href="@{/css/main.css}">
+    <link rel="stylesheet" th:href="@{/css/admin.css}">
+    <link rel="stylesheet" th:href="@{/css/add-attraction.css}">
+</head>
+<body>
+<header>
+    <h1>please do not add any attraction</h1>
+    <a href="/admin" class="admin-button">Back to admin panel</a>
+</header>
+
+<main class="container">
+    <section class="box">
+        <form action="/save" method="post" th:object="${touristAttraction}">
+            <label>Name:</label>
+            <label>
+                <input type="text" th:field="*{name}" required>
+            </label>
+
+            <label>City:</label>
+            <label for="attraction-select"></label>
+            <select id="attraction-select" name="city" th:field="*{city}" required>
+                <option value="" disabled selected>Select a city</option>
+                <option th:each="city : ${cities}"
+                        th:value="${city}"
+                        th:text="${city}">
+                </option>
+            </select>
+            <button type="submit">Save</button>
+        </form>
+    </section>
+</main>
+</body>
+</html>
