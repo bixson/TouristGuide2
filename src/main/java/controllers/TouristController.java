@@ -30,8 +30,16 @@ public class TouristController {
     public String showAddAttractionForm(Model model) {
         model.addAttribute("touristAttraction", new TouristAttraction());
         model.addAttribute("cities", touristService.getAllCities());
+        model.addAttribute("allTags", touristService.getAllTags());
         return "add-attraction";
     }
+
+    @PostMapping("/attractions/add")
+    public String addAttraction(@ModelAttribute TouristAttraction touristAttraction) {
+        touristService.saveAttraction(touristAttraction);
+        return "redirect:/attractions";
+    }
+
 
     @PostMapping("/save")
     public String saveTouristAttraction(@ModelAttribute TouristAttraction touristAttraction) {
@@ -62,7 +70,7 @@ public class TouristController {
         return "update-attraction";
     }
 
-    @PostMapping("/{name}/update")
+    @PostMapping("/attractions/{name}/update")
     public String updateTouristAttraction(@PathVariable String name, @ModelAttribute TouristAttraction touristAttraction) {
         touristService.updateTouristAttraction(name, touristAttraction);
         return "redirect:/attractions";

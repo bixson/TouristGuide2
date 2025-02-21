@@ -1,0 +1,33 @@
+<!--        IDEA        -->
+<!--   not being used   -->
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Confirm Deletion</title>
+  <link rel="stylesheet" th:href="@{/css/main.css}">
+  <link rel="stylesheet" th:href="@{/css/admin.css}">
+</head>
+<body>
+<header>
+  <h1>Confirm Deletion</h1>
+</header>
+<main class="container">
+  <section class="box">
+    <h2>Are you sure you want to delete "<span th:text="${attraction.name}"></span>"?</h2>
+    <p>This action cannot be undone.</p>
+    <div class="button-container">
+      <!-- Delete Button -->
+      <form th:action="@{'/attractions/' + ${attraction.name} + '/delete'}" method="post">
+        <button type="submit" class="delete-button">Yes, Delete</button>
+      </form>
+
+      <!-- Cancel Button -->
+      <a href="/attractions" class="cancel-button">Cancel</a>
+    </div>
+  </section>
+</main>
+</body>
+</html>
