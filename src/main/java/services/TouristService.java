@@ -50,4 +50,8 @@ public class TouristService {
                 .filter(attraction -> attraction.getName().equalsIgnoreCase(name))
                 .findFirst();
     }
+
+    public void saveAttraction(TouristAttraction touristAttraction) {
+        touristRepository.addTouristAttraction(touristAttraction);
+    }
 }

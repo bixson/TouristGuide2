@@ -1,14 +1,26 @@
-body {
-    font-family: "Georgia", serif;
+/* stolen from admin.css */
+.admin-theme {
     background-color: #133D40;
     color: #D5CCB5;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    height: 100vh;
-    margin: 0;
 }
+.admin-theme h1,
+.admin-theme h2,
+.admin-theme h3,
+.admin-theme p,
+.admin-theme label,
+.admin-theme input,
+.admin-theme select,
+.admin-theme button,
+.admin-theme a {
+    font-family: "Georgia", serif;
+    font-size: 16px;
+    color: #D5CCB5;
+}
+
+header h1 {
+    font-size: 36px !important;  /* match attraction-list */
+}
+
 
 .refined-box {
     background: rgba(23, 64, 65, 0.95);
@@ -52,8 +64,7 @@ input[type="text"], select {
     width: 100%;
 }
 
-.ok-button,
-.cancel-button {
+.ok-button, .cancel-button {
     padding: 12px 30px;
     font-size: 18px;
     border-radius: 8px;

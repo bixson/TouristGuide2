@@ -1,3 +1,4 @@
+/* Qodana Suppress: DuplicateCode */ /* <-- this we do to suppress the 'duppie' warning from Qodana */
 header {
     width: 100% !important;
     background: rgba(23, 64, 65, 0.95) !important;
