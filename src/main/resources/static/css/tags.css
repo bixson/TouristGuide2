@@ -1,3 +1,4 @@
+/* Qodana Suppress: DuplicateCode */ /* <-- this we do to suppress the 'duppie' warning from Qodana */
 .admin-button {
     position: absolute;
     top: 20px;
