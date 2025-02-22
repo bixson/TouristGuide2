@@ -9,6 +9,6 @@ public enum TagList {
     Natteliv,
     Shopping,
     Studieliv,
-    Udendørs,
+    Udendørs
 
 }
