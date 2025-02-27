@@ -99,6 +99,4 @@ public class TouristController {
     public String redirectToEdit(@RequestParam String selectedAttraction) {
         return "redirect:/attractions/" + selectedAttraction + "/edit";
     }
-
-
 }
