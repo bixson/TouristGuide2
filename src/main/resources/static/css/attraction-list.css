@@ -1,3 +1,4 @@
+/* Qodana Suppress: DuplicateCode */ /* <-- this we do to suppress the 'duppie' warning from Qodana */
 .admin-button {
     position: absolute;
     top: 20px;
@@ -16,10 +17,20 @@
 
 .admin-button:hover {
     background-color: #136D70;
-    color: #BEB7A4;
+    color: white;
     transform: scale(1.05);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
+
+header h1, h2 {
+    font-family: "Georgia", serif !important;
+    color: #D5CCB5;
+}
+/* FORCE, FORCE, FORCE */
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Georgia", serif !important;
+}
+
 
 .container {
     display: flex;

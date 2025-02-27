@@ -1,16 +1,18 @@
 package repositories;
 
 import models.TouristAttraction;
+import org.springframework.stereotype.Repository;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Repository
 public class TouristRepository {
     private final List<TouristAttraction> touristAttractionList = new ArrayList<>();
 
     // Constructor to add initial TouristAttraction objects
     public TouristRepository() {
-        touristAttractionList.add(new TouristAttraction("Den Lille Havfrue", "Den er meget lille", "København", List.of("Udendørs, Kunst")));
+        touristAttractionList.add(new TouristAttraction("Den Lille Havfrue", "Den er meget lille", "København", List.of("Udendørs", "Kunst")));
         touristAttractionList.add(new TouristAttraction("Amalienborg", "Der bor kongen", "København", List.of("Historisk", "Museum")));
         touristAttractionList.add(new TouristAttraction("Kongens Nytorv", "Der er hyggeligt om sommeren", "København", List.of("Udendørs", "Shopping")));
         touristAttractionList.add(new TouristAttraction("KEA", "Det er en fin skole", "København", List.of("Natteliv", "Studieliv")));
@@ -73,5 +75,14 @@ public class TouristRepository {
     // Delete from list method
     public void deleteTouristAttraction(String name) {
         touristAttractionList.removeIf(attraction -> attraction.getName().equals(name));
+    }
+
+    public List<String> getAllCities() {
+        return List.of("Aalborg", "Aarhus", "Amagerbro", "Bornholm", "Esbjerg", "Frederiksberg", "København", "Odense", "Randers", "Roskilde");
+    }
+
+    public List<String> getAllTags() {
+        return List.of("Arkitektur", "Børnevenligt", "Eventyr", "Festival", "Historisk", "Håndværk", "Kunst", "Luksus", "Mad", "Museum",
+                                    "Musik", "Natur", "Natteliv", "Shopping", "Sport", "Strand", "Teknologi", "Udendørs", "Vandaktiviteter", "Wellness");
     }
 }

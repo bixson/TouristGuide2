@@ -1,3 +1,4 @@
+/* Qodana Suppress: DuplicateCode */ /* <-- this we do to suppress the 'duppie' warning from Qodana */
 .admin-button {
     position: absolute;
     top: 20px;
@@ -16,7 +17,7 @@
 
 .admin-button:hover {
     background-color: #136D70;
-    color: #BEB7A4;
+    color: #fff;
     transform: scale(1.05);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
@@ -24,29 +25,29 @@
 body {
     background-color: #133D40;
     color: #D5CCB5;
-    font-family: inherit;
+    font-family: "Georgia", serif !important;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
     height: 100vh;
     margin: 0;
+    scroll-behavior: smooth;
 }
 
 header {
     width: 100%;
-    background: rgba(23, 64, 65, 0.95);
+    background: rgba(23, 64, 65, 0.95) !important;
     padding: 30px 0;
     text-align: center;
     font-size: 36px;
     font-weight: bold;
     color: #D5CCB5;
-    box-shadow: 0px 6px 15px rgba(0, 0, 0, 0.2);
-    font-family: "Georgia", serif;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2);
+    font-family: "Georgia", serif !important;
     text-transform: uppercase;
 }
 
-/* admin panel Box */
 .container {
     background-color: rgba(23, 64, 65, 0.9);
     padding: 40px;
@@ -79,7 +80,7 @@ h2 {
     align-items: center;
     justify-content: center;
     background-color: #136D70;
-    color: #E6DDC7 !important; /* color consistency */
+    color: #E6DDC7;
     padding: 14px;
     border-radius: 8px;
     text-decoration: none;
@@ -91,18 +92,22 @@ h2 {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
 }
 
-.full-width-button:hover {
-    background-color: #E3C567;
-    transform: scale(1.05);
-    color: #E6DDC7 !important; /* consistent text color, no change on hover */
+.full-width-button.view-button:hover {
+    background-color: #66C7F4;
+    color: #fff;
+}
+
+.full-width-button.add-button:hover {
+    background-color: #218838;
+    color: #fff;
 }
 
 .full-width-button.back-button:hover {
     background-color: #9E2A2B;
-    transform: scale(1.05);
-    color: #E6DDC7 !important; /* consistent text color, no change on hover */
+    color: #fff;
 }
 
-
-
-
+.full-width-button:hover {
+    background-color: #E3C567;
+    color: #fff;
+}

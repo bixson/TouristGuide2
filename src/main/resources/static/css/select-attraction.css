@@ -1,0 +1,78 @@
+/* Qodana Suppress: DuplicateCode */ /* <-- this we do to suppress the 'duppie' warning from Qodana */
+header {
+    width: 100% !important;
+    background: rgba(23, 64, 65, 0.95) !important;
+    padding: 30px 0 !important;
+    text-align: center !important;
+    font-size: 14px !important;
+    font-weight: bold !important;
+    color: #D5CCB5 !important;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2) !important;
+    font-family: "Georgia", serif !important;
+    text-transform: uppercase !important;
+}
+
+header h1 {
+    font-family: "Georgia", serif !important; /* force that font */
+    color: #D5CCB5;
+}
+
+body {
+    font-family: "Georgia", serif !important;
+    background-color: #133D40;
+    color: #D5CCB5;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100vh;
+    margin: 0;
+    scroll-behavior: smooth;
+}
+
+.form-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+select {
+    width: 220px;
+    padding: 8px;
+    font-size: 14px;
+    border-radius: 6px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    background: rgba(28, 82, 83, 0.95);
+    color: #E6DDC7;
+    text-align: left;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+}
+
+select:focus, select:hover {
+    background: rgba(19, 109, 112, 0.95);
+}
+
+.go-button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: all 0.2s ease-in-out;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 5px;
+}
+
+.go-button img {
+    width: 32px;
+    height: 32px;
+    transition: all 0.2s ease-in-out;
+}
+
+.go-button:hover img {
+    transform: scale(1.1);
+    filter: brightness(1.2);
+}

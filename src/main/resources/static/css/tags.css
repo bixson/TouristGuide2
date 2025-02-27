@@ -1,0 +1,78 @@
+/* Qodana Suppress: DuplicateCode */ /* <-- this we do to suppress the 'duppie' warning from Qodana */
+.admin-button {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    background-color: #1C5253;
+    color: #BEB7A4;
+    padding: 6px 12px;
+    font-size: 14px;
+    border-radius: 4px;
+    text-decoration: none;
+    font-weight: bold;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.2s ease-in-out;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.15);
+}
+
+.admin-button:hover {
+    background-color: #136D70;
+    color: #fff;
+    transform: scale(1.05);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+header h1, h2 {
+    font-family: "Georgia", serif !important;
+    color: #D5CCB5;
+}
+/* FORCE, FORCE, FORCE */
+h1, h2, h3, h4, h5, h6 {
+    font-family: "Georgia", serif !important;
+}
+
+.container {
+    max-width: 800px;
+    margin: auto;
+    padding: 20px;
+    text-align: center;
+}
+
+.tags-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+    justify-content: center;
+}
+
+.tag-card {
+    background: linear-gradient(135deg, #1C5253, #174041);
+    color: #D5CCB5; /* soft beige */
+    padding: 12px 20px;
+    border-radius: 30px;
+    font-weight: bold;
+    text-align: center;
+    font-size: 16px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    display: inline-block;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: 0.3s ease-in-out;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.tag-card:hover {
+    background: linear-gradient(135deg, #136D70, #0F5053);
+    transform: scale(1.05);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+    cursor: pointer;
+}
+
+.tag-content {
+    font-family: "Georgia", serif;
+    font-size: 16px;
+    font-weight: bold;
+    color: #ffffff;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}

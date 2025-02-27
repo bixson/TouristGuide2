@@ -8,7 +8,7 @@
 
 <body>
 <header>
-    <a href="/admin" class="admin-button">Admin</a>
+    <a th:href="@{/admin}" class="admin-button">Admin</a>
     <h1>Welcome to the Tourist Guide</h1>
 </header>
 
@@ -25,55 +25,55 @@
         <ul>
             <li>
                 <a href="https://www.visitcopenhagen.dk/koebenhavn/planlaeg-din-tur/den-lille-havfrue-gdk586951" target="_blank">
-                    <img src="images/den_lille_havfrue.jpg" alt="Den Lille Havfrue">
+                    <img th:src="@{/images/den_lille_havfrue.jpg}" alt="Den Lille Havfrue">
                     <span>Den Lille Havfrue</span>
                 </a>
             </li>
             <li>
                 <a href="https://www.visitcopenhagen.com/copenhagen/planning/amalienborg-palace-gdk492887" target="_blank">
-                    <img src="images/amalienborg.jpg" alt="Amalienborg">
+                    <img th:src="@{/images/amalienborg.jpg}" alt="Amalienborg">
                     <span>Amalienborg</span>
                 </a>
             </li>
             <li>
                 <a href="https://www.visitcopenhagen.com/copenhagen/planning/kings-garden-gdk420899" target="_blank">
-                    <img src="images/kongens_nytorv.jpg" alt="Kongens Nytorv">
+                    <img th:src="@{/images/kongens_nytorv.jpg}" alt="Kongens Nytorv">
                     <span>Kongens Nytorv</span>
                 </a>
             </li>
             <li>
                 <a href="https://mit.kea.dk/studieliv-og-faciliteter/studieliv/fredagsbar" target="_blank">
-                    <img src="images/guldbar.jpg" alt="GULDBAR">
+                    <img th:src="@{/images/guldbar.jpg}" alt="GULDBAR">
                     <span>Guldbar</span>
                 </a>
             </li>
             <li>
                 <a href="https://www.visitcopenhagen.com/copenhagen/planning/christiania-gdk957761" target="_blank">
-                    <img src="images/christania.jpg" alt="Christiania">
+                    <img th:src="@{/images/christania.jpg}" alt="Christiania">
                     <span>Christiania</span>
                 </a>
             </li>
             <li>
                 <a href="https://www.visitcopenhagen.dk/koebenhavn/planlaeg-din-tur/nyhavn-gdk474735" target="_blank">
-                    <img src="images/nyhavn.jpg" alt="Nyhavn">
+                    <img th:src="@{/images/nyhavn.jpg}" alt="Nyhavn">
                     <span>Nyhavn</span>
                 </a>
             </li>
             <li>
                 <a href="https://www.visitcopenhagen.com/copenhagen/planning/copenhagen-zoo-gdk1077921" target="_blank">
-                    <img src="images/Zoo.jpg" alt="Zoologisk Have">
+                    <img th:src="@{/images/Zoo.jpg}" alt="Zoologisk Have">
                     <span>Zoologisk Have</span>
                 </a>
             </li>
             <li>
                 <a href="https://www.amagercentret.dk/" target="_blank">
-                    <img src="images/amagercentret.jpeg" alt="Amager Centret">
+                    <img th:src="@{/images/amagercentret.jpeg}" alt="Amager Centret">
                     <span>Amager Centret</span>
                 </a>
             </li>
             <li>
                 <a href="https://www.visitcopenhagen.com/copenhagen/planning/torvehallerne-gdk545401" target="_blank">
-                    <img src="images/Torvehallene.jpg" alt="TorvehallerneKBH">
+                    <img th:src="@{/images/Torvehallene.jpg}" alt="Torvehallerne">
                     <span>Torvehallerne</span>
                 </a>
             </li>
@@ -81,26 +81,23 @@
     </section>
 </main>
 
-
 <footer>
     <div class="footer-container">
 
         <div class="footer-api">
             <h2>API Endpoints</h2>
-            <a class="all-attractions" href="http://localhost:8080/attractions">View All Tourist Attractions</a>
+            <a class="all-attractions" th:href="@{/api/attractions}">View All Tourist Attractions</a>
+
             <div class="grid">
-                <a href="http://localhost:8080/attractions/Den%20Lille%20Havfrue">Den Lille Havfrue</a>
-                <a href="http://localhost:8080/attractions/Amalienborg">Amalienborg</a>
-                <a href="http://localhost:8080/attractions/Kongens%20Nytorv">Kongens Nytorv</a>
-                <a href="http://localhost:8080/attractions/Guldbar">Guldbar</a>
-                <a href="http://localhost:8080/attractions/Christania">Christiania</a>
-                <a href="http://localhost:8080/attractions/Nyhavn">Nyhavn</a>
-
-
+                <a th:href="@{/api/attractions/Den Lille Havfrue}">Den Lille Havfrue</a>
+                <a th:href="@{/api/attractions/Amalienborg}">Amalienborg</a>
+                <a th:href="@{/api/attractions/Kongens Nytorv}">Kongens Nytorv</a>
+                <a th:href="@{/api/attractions/Guldbar}">Guldbar</a>
+                <a th:href="@{/api/attractions/Christiania}">Christiania</a>
+                <a th:href="@{/api/attractions/Nyhavn}">Nyhavn</a>
             </div>
+
         </div>
-
-
 
         <div class="footer-contact">
             <p>Contact us at:</p>
@@ -108,7 +105,6 @@
             <p><a href="mailto:donotcontactus@touristguide.dk">donotcontactus@touristguide.dk</a></p>
         </div>
     </div>
-
 
     <p class="footer-copyright">© 2025 Tourist Guide</p>
 </footer>
