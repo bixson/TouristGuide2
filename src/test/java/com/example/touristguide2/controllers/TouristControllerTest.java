@@ -2,6 +2,7 @@ package com.example.touristguide2.controllers;
 
 import static org.mockito.Mockito.*;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.*;
+import static org.springframework.test.web.servlet.result.MockMvcResultHandlers.print;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
 import controllers.TouristController;
@@ -94,7 +95,7 @@ class TouristControllerTest {
         List<TouristAttraction> updatedAttractions = new ArrayList<>(mockAttractions);
         updatedAttractions.add(attractionToSave);
 
-        // Mock the service to return the updated list after saving the new attraction
+        // Mocks the service to return the updated list after saving the new attraction
         when(touristService.getAllTouristAttractions()).thenReturn(updatedAttractions);
 
         // Performs the post request to save the new attraction
@@ -112,48 +113,80 @@ class TouristControllerTest {
         verify(touristService, times(1)).addTouristAttraction(any(TouristAttraction.class));
     }
 
+    @Test
+    void showAttractionTags() throws Exception {
+        String attractionName = "Den Lille Havfrue";
+        TouristAttraction attraction = new TouristAttraction(attractionName, "En lille statue", "København", List.of("Udendørs", "Kunst"));
+        when(touristService.getTouristAttraction(attractionName)).thenReturn(attraction);
+        mockMvc.perform(get("/" + attractionName + "/tags"))
+            .andExpect(status().isOk())
+            .andExpect(view().name("tags"))
+            .andExpect(model().attributeExists("attraction"))
+            .andExpect(model().attributeExists("tags"))
+            .andExpect(model().attribute("tags", attraction.getTags()));
+        verify(touristService, times(1)).getTouristAttraction(attractionName);
+    }
 
-//    @GetMapping("/{name}/tags")
-//    public String showAttractionTags(@PathVariable String name, Model model) {
-//        TouristAttraction attraction = touristService.getTouristAttraction(name);
-//        if (attraction == null) {
-//            return "redirect:/attractions";
-//        }
-//        model.addAttribute("attraction", attraction);
-//        model.addAttribute("tags", attraction.getTags());
-//        return "tags";
-//    }
-//
-//    @GetMapping("/attractions/{name}/edit")
-//    public String showEditForm(@PathVariable String name, Model model) {
-//        TouristAttraction attraction = touristService.getTouristAttraction(name);
-//        if (attraction == null) {
-//            return "redirect:/attractions";
-//        }
-//        model.addAttribute("touristAttraction", attraction);
-//        model.addAttribute("cities", touristService.getAllCities());
-//        model.addAttribute("allTags", touristService.getAllTags());
-//        return "update-attraction";
-//    }
-//
-//    @PostMapping("/{name}/update")
-//    public String updateTouristAttraction(@PathVariable String name, @ModelAttribute TouristAttraction touristAttraction) {
-//        touristService.updateTouristAttraction(name, touristAttraction);
-//        return "redirect:/attractions";
-//    }
-//
-//    @GetMapping("/{name}/delete")
-//    public String deleteTouristAttraction(@PathVariable String name) {
-//        touristService.deleteTouristAttraction(name);
-//        return "redirect:/attractions";
-//    }
+    @Test
+    void showEditForm() throws Exception {
+        String attractionName = "Den Lille Havfrue";
+        TouristAttraction attraction = new TouristAttraction(attractionName, "En lille statue", "København", List.of("Udendørs", "Kunst"));
 
-@Test
-void showAdminPage() throws Exception {
-    mockMvc.perform(get("/admin"))
-            .andExpect(MockMvcResultMatchers.status().isOk())
-            .andExpect(MockMvcResultMatchers.view().name("admin"));
-}
+        when(touristService.getTouristAttraction(attractionName)).thenReturn(attraction);
+        when(touristService.getAllCities()).thenReturn(List.of("København", "Aarhus"));
+        when(touristService.getAllTags()).thenReturn(List.of("Udendørs", "Kunst"));
+
+        mockMvc.perform(get("/attractions/" + attractionName + "/edit"))
+                .andExpect(status().isOk())
+                .andExpect(view().name("update-attraction"))
+                .andExpect(model().attributeExists("touristAttraction"))
+                .andExpect(model().attributeExists("cities"))
+                .andExpect(model().attributeExists("allTags"));
+
+        verify(touristService, times(1)).getTouristAttraction(attractionName);
+        verify(touristService, times(1)).getAllCities();
+        verify(touristService, times(1)).getAllTags();
+    }
+
+    @Test
+    void updateTouristAttraction() throws Exception {
+        String attractionName = "Den Lille Havfrue"; // Indeholder mellemrum
+        TouristAttraction updatedAttraction = new TouristAttraction(
+                attractionName, "Opdateret beskrivelse", "København", List.of("Udendørs", "Historisk")
+        );
+
+        // Mock service for at undgå NullPointerException
+        doNothing().when(touristService).updateTouristAttraction(eq(attractionName), any(TouristAttraction.class));
+
+        mockMvc.perform(post("/attractions/{name}/update", attractionName) // Bruger direkte parameter
+                        .param("name", updatedAttraction.getName())
+                        .param("description", updatedAttraction.getDescription())
+                        .param("city", updatedAttraction.getCity())
+                        .param("tags", "Udendørs")
+                        .param("tags", "Historisk"))
+                .andDo(print()) // Udskriver request/response i terminalen
+                .andExpect(status().is3xxRedirection()) // Forventer redirect
+                .andExpect(redirectedUrl("/attractions"));
+
+        verify(touristService, times(1)).updateTouristAttraction(eq(attractionName), any(TouristAttraction.class));
+    }
+
+
+    @Test
+    void deleteTouristAttraction() throws Exception {
+        String attractionName = "Den Lille Havfrue";
+        mockMvc.perform(get("/" + attractionName + "/delete"))
+            .andExpect(status().is3xxRedirection())
+            .andExpect(redirectedUrl("/attractions"));
+        verify(touristService, times(1)).deleteTouristAttraction(attractionName);
+    }
+
+    @Test
+    void showAdminPage() throws Exception {
+        mockMvc.perform(get("/admin"))
+                .andExpect(MockMvcResultMatchers.status().isOk())
+                .andExpect(MockMvcResultMatchers.view().name("admin"));
+    }
 
     @Test
     void showSelectAttractionPage() throws Exception{
