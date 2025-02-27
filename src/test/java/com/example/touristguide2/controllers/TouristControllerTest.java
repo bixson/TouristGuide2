@@ -78,7 +78,7 @@ class TouristControllerTest {
 
     @Test //This @Test can't use the TouristRepository so it makes city- and tag-names from TouristService instead
     void testSaveTouristAttraction() throws Exception {
-        // Creates a new attraction to be added
+        // Creates a new attraction to be added.
         TouristAttraction newAttraction = new TouristAttraction(
                 "New Attraction",
                 "A new description",
