@@ -13,7 +13,8 @@
 .admin-theme button,
 .admin-theme a {
     font-family: "Georgia", serif;
-    font-size: 14px;
+    font-size: 14px; !important;
+    text-transform: uppercase !important;
     color: #D5CCB5;
 }
 

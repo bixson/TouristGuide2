@@ -7,6 +7,7 @@
     color: #BEB7A4;
     padding: 6px 12px;
     font-size: 14px;
+    text-transform: uppercase !important;
     border-radius: 4px;
     text-decoration: none;
     font-weight: bold;
