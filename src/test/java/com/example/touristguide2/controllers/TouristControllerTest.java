@@ -150,22 +150,22 @@ class TouristControllerTest {
 
     @Test
     void updateTouristAttraction() throws Exception {
-        String attractionName = "Den Lille Havfrue"; // Indeholder mellemrum
+        String attractionName = "Den Lille Havfrue";
         TouristAttraction updatedAttraction = new TouristAttraction(
                 attractionName, "Opdateret beskrivelse", "København", List.of("Udendørs", "Historisk")
         );
 
-        // Mock service for at undgå NullPointerException
+        // Mocks service to avoid NullPointerException
         doNothing().when(touristService).updateTouristAttraction(eq(attractionName), any(TouristAttraction.class));
 
-        mockMvc.perform(post("/attractions/{name}/update", attractionName) // Bruger direkte parameter
+        mockMvc.perform(post("/attractions/{name}/update", attractionName)
                         .param("name", updatedAttraction.getName())
                         .param("description", updatedAttraction.getDescription())
                         .param("city", updatedAttraction.getCity())
                         .param("tags", "Udendørs")
                         .param("tags", "Historisk"))
-                .andDo(print()) // Udskriver request/response i terminalen
-                .andExpect(status().is3xxRedirection()) // Forventer redirect
+                .andDo(print()) // Prints request/response in the terminal
+                .andExpect(status().is3xxRedirection()) // Expects redirect
                 .andExpect(redirectedUrl("/attractions"));
 
         verify(touristService, times(1)).updateTouristAttraction(eq(attractionName), any(TouristAttraction.class));
