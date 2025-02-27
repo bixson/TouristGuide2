@@ -1,16 +1,9 @@
 /* Qodana Suppress: DuplicateCode */ /* <-- this we do to suppress the 'duppie' warning from Qodana */
 
-.admin-button:hover {
-    background-color: #136D70;
-    color: #fff;
-    transform: scale(1.05);
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-}
-
 body {
     background-color: #133D40;
     color: #D5CCB5;
-    font-family: "Georgia", serif !important;
+    font-family: 'American Typewriter', serif;
     display: flex;
     flex-direction: column;
     align-items: center;

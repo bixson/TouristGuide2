@@ -3,20 +3,7 @@
     background-color: #133D40;
     color: #D5CCB5;
 }
-.admin-theme h1,
-.admin-theme h2,
-.admin-theme h3,
-.admin-theme p,
-.admin-theme label,
-.admin-theme input,
-.admin-theme select,
-.admin-theme button,
-.admin-theme a {
-    font-family: "Georgia", serif;
-    font-size: 14px; !important;
-    text-transform: uppercase !important;
-    color: #D5CCB5;
-}
+
 
 header h1 {
     font-size: 36px !important;  /* match attraction-list */

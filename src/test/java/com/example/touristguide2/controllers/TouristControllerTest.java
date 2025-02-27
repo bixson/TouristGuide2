@@ -17,9 +17,8 @@ import org.springframework.test.context.bean.override.mockito.MockitoBean;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders;
 import org.springframework.test.web.servlet.result.MockMvcResultMatchers;
-import repositories.TouristRepository;
 import services.TouristService;
-import repositories.TagList;
+
 
 import java.util.List;
 import java.util.ArrayList;
@@ -36,8 +35,6 @@ class TouristControllerTest {
     @MockitoBean
     private TouristService touristService;
 
-    private TouristAttraction touristAttraction;
-    private TouristRepository touristRepository;
     private List<TouristAttraction> attractions;
     private List<TouristAttraction> mockAttractions;
 
