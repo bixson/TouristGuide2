@@ -62,7 +62,6 @@ class TouristControllerTest {
     void showAllTouristAttractions() throws Exception{
         mockMvc.perform(MockMvcRequestBuilders.get("/attractions"))
                 .andExpect(MockMvcResultMatchers.status().isOk())
-                //.andExpect(model().attributeExists("attractions", attractions))
                 .andExpect(MockMvcResultMatchers.view().name("attraction-list"));
 
         Mockito.verify(touristService, Mockito.times(1)).getAllTouristAttractions();
@@ -72,46 +71,36 @@ class TouristControllerTest {
     void showAddAttractionForm() throws Exception{
         mockMvc.perform(MockMvcRequestBuilders.get("/add"))
                 .andExpect(MockMvcResultMatchers.status().isOk())
-                //.andExpect(model().attributeExists("attractions", attractions))
                 .andExpect(MockMvcResultMatchers.view().name("add-attraction"));
 
         Mockito.verify(touristService, Mockito.times(1)).getAllCities();
     }
 
-    @Test
+    @Test //This @Test can't use the TouristRepository so it makes city- and tag-names from TouristService instead
     void testSaveTouristAttraction() throws Exception {
-        // Mock the service to return the mockAttractions
-        when(touristService.getAllTouristAttractions()).thenReturn(mockAttractions);
-
-        // Creates a new tourist attraction to save
-        TouristAttraction attractionToSave = new TouristAttraction(
+        // Creates a new attraction to be added.
+        TouristAttraction newAttraction = new TouristAttraction(
                 "New Attraction",
                 "A new description",
                 "New City",
-                List.of(TagList.Historisk.name(), TagList.Museum.name()) // Using enum values for tags
+                List.of("Historisk", "Museum") // Using hardcoded tag values from here, just copied from the
+                // list in TouristRepository
         );
 
-        // Simulates adding the new attraction to the list (without modifying mockAttractions)
-        List<TouristAttraction> updatedAttractions = new ArrayList<>(mockAttractions);
-        updatedAttractions.add(attractionToSave);
-
-        // Mocks the service to return the updated list after saving the new attraction
-        when(touristService.getAllTouristAttractions()).thenReturn(updatedAttractions);
-
-        // Performs the post request to save the new attraction
+        // Performs a POST request to add the new attraction
         mockMvc.perform(post("/save")
-                        .param("name", attractionToSave.getName())
-                        .param("description", attractionToSave.getDescription())
-                        .param("city", attractionToSave.getCity())
-                        .param("tags", TagList.Historisk.name()) // Passing enum values for tags
-                        .param("tags", TagList.Museum.name())   // Second valid tag
-                )
-                .andExpect(status().is3xxRedirection()) // Expect a redirect after save
-                .andExpect(redirectedUrl("/attractions")); // Expect a redirect to /attractions after save
+                        .param("name", newAttraction.getName())
+                        .param("description", newAttraction.getDescription())
+                        .param("city", newAttraction.getCity())
+                        .param("tags", "Historisk") // First tag
+                        .param("tags", "Museum"))  // Second tag
+                .andExpect(status().is3xxRedirection()) // Expects a redirect response
+                .andExpect(redirectedUrl("/attractions")); // Expects redirection to the attractions page
 
-        // Verifies that the service method was called once to add a new tourist attraction
+        // Verifies that the service method for adding an attraction was called exactly once
         verify(touristService, times(1)).addTouristAttraction(any(TouristAttraction.class));
     }
+
 
     @Test
     void showAttractionTags() throws Exception {
@@ -119,11 +108,11 @@ class TouristControllerTest {
         TouristAttraction attraction = new TouristAttraction(attractionName, "En lille statue", "København", List.of("Udendørs", "Kunst"));
         when(touristService.getTouristAttraction(attractionName)).thenReturn(attraction);
         mockMvc.perform(get("/" + attractionName + "/tags"))
-            .andExpect(status().isOk())
-            .andExpect(view().name("tags"))
-            .andExpect(model().attributeExists("attraction"))
-            .andExpect(model().attributeExists("tags"))
-            .andExpect(model().attribute("tags", attraction.getTags()));
+                .andExpect(status().isOk())
+                .andExpect(view().name("tags"))
+                .andExpect(model().attributeExists("attraction"))
+                .andExpect(model().attributeExists("tags"))
+                .andExpect(model().attribute("tags", attraction.getTags()));
         verify(touristService, times(1)).getTouristAttraction(attractionName);
     }
 
@@ -176,8 +165,8 @@ class TouristControllerTest {
     void deleteTouristAttraction() throws Exception {
         String attractionName = "Den Lille Havfrue";
         mockMvc.perform(get("/" + attractionName + "/delete"))
-            .andExpect(status().is3xxRedirection())
-            .andExpect(redirectedUrl("/attractions"));
+                .andExpect(status().is3xxRedirection())
+                .andExpect(redirectedUrl("/attractions"));
         verify(touristService, times(1)).deleteTouristAttraction(attractionName);
     }
 
