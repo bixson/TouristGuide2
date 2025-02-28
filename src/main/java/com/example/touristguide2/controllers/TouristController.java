@@ -1,10 +1,10 @@
-package controllers;
+package com.example.touristguide2.controllers;
 
-import models.TouristAttraction;
+import com.example.touristguide2.models.TouristAttraction;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
-import services.TouristService;
+import com.example.touristguide2.services.TouristService;
 
 import java.util.Comparator;
 import java.util.List;
