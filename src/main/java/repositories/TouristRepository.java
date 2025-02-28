@@ -12,6 +12,48 @@ public class TouristRepository {
 
     // Constructor to add initial TouristAttraction objects
     public TouristRepository() {
+        populateAttractionList();
+    }
+
+    // Read list method
+    public List<TouristAttraction> getAllTouristAttractions() {
+        return new ArrayList<>(touristAttractionList);
+    }
+
+    // Add/create to list method
+    public void addTouristAttraction(TouristAttraction touristAttraction) {
+        touristAttractionList.add(touristAttraction);
+    }
+
+    // Update specific attraction
+    public void updateTouristAttraction(String name, TouristAttraction touristAttraction) {
+        for (int i = 0; i < touristAttractionList.size(); i++) {
+            if (touristAttractionList.get(i).getName().equals(name)) {
+                TouristAttraction existingAttraction = touristAttractionList.get(i);
+                existingAttraction.setName(touristAttraction.getName());
+                existingAttraction.setDescription(touristAttraction.getDescription());
+                existingAttraction.setCity(touristAttraction.getCity());
+                existingAttraction.setTags(touristAttraction.getTags());
+                return;
+            }
+        }
+    }
+
+    // Delete from list method
+    public void deleteTouristAttraction(String name) {
+        touristAttractionList.removeIf(attraction -> attraction.getName().equals(name));
+    }
+
+    public List<String> getAllCities() {
+        return List.of("Aalborg", "Aarhus", "Amagerbro", "Bornholm", "Esbjerg", "Frederiksberg", "København", "Odense", "Randers", "Roskilde");
+    }
+
+    public List<String> getAllTags() {
+        return List.of("Arkitektur", "Børnevenligt", "Eventyr", "Festival", "Historisk", "Håndværk", "Kunst", "Luksus", "Mad", "Museum",
+                                    "Musik", "Natur", "Natteliv", "Shopping", "Sport", "Strand", "Teknologi", "Udendørs", "Vandaktiviteter", "Wellness");
+    }
+
+    private void populateAttractionList() {
         touristAttractionList.add(new TouristAttraction("Den Lille Havfrue", "Den er meget lille", "København", List.of("Udendørs", "Kunst")));
         touristAttractionList.add(new TouristAttraction("Amalienborg", "Der bor kongen", "København", List.of("Historisk", "Museum")));
         touristAttractionList.add(new TouristAttraction("Kongens Nytorv", "Der er hyggeligt om sommeren", "København", List.of("Udendørs", "Shopping")));
@@ -32,57 +74,5 @@ public class TouristRepository {
         touristAttractionList.add(new TouristAttraction("ARoS Aarhus Kunstmuseum", "Regnbuepanorama over Århus", "Aarhus", List.of("Kunst", "Museum")));
         touristAttractionList.add(new TouristAttraction("Moesgaard Museum", "Oplev menneskets udvikling", "Aarhus", List.of("Museum", "Historisk", "Børnevenligt")));
         touristAttractionList.add(new TouristAttraction("Randers Regnskov", "Oplev dyre- og plantelivet i de 3 kupler", "Randers", List.of("Børnevenligt")));
-
-    }
-
-    // Read list method
-    public List<TouristAttraction> getAllTouristAttractions() {
-        return new ArrayList<>(touristAttractionList);
-    }
-
-
-    // Get specific attraction
-    public TouristAttraction getTouristAttraction(String name) {
-        for (TouristAttraction attraction : touristAttractionList) {
-            if (attraction.getName().equalsIgnoreCase(name)) {
-                return attraction;
-            }
-        }
-        return null;
-    }
-
-
-
-
-
-    // Add/create to list method
-    public void addTouristAttraction(TouristAttraction touristAttraction) {
-        touristAttractionList.add(touristAttraction);
-    }
-
-
-
-    // Update specific attraction
-    public void updateTouristAttraction(String name, TouristAttraction touristAttraction) {
-        for (int i = 0; i < touristAttractionList.size(); i++) {
-            if (touristAttractionList.get(i).getName().equals(name)) {
-                touristAttractionList.set(i, touristAttraction);
-                return;
-            }
-        }
-    }
-
-    // Delete from list method
-    public void deleteTouristAttraction(String name) {
-        touristAttractionList.removeIf(attraction -> attraction.getName().equals(name));
-    }
-
-    public List<String> getAllCities() {
-        return List.of("Aalborg", "Aarhus", "Amagerbro", "Bornholm", "Esbjerg", "Frederiksberg", "København", "Odense", "Randers", "Roskilde");
-    }
-
-    public List<String> getAllTags() {
-        return List.of("Arkitektur", "Børnevenligt", "Eventyr", "Festival", "Historisk", "Håndværk", "Kunst", "Luksus", "Mad", "Museum",
-                                    "Musik", "Natur", "Natteliv", "Shopping", "Sport", "Strand", "Teknologi", "Udendørs", "Vandaktiviteter", "Wellness");
     }
 }

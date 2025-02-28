@@ -4,11 +4,9 @@
     color: #D5CCB5;
 }
 
-
 header h1 {
     font-size: 36px !important;  /* match attraction-list */
 }
-
 
 .refined-box {
     background: rgba(23, 64, 65, 0.95);
@@ -42,7 +40,6 @@ input[type="text"], select {
 #attraction-select:hover, #attraction-select:focus {
     background: rgba(19, 109, 112, 0.95);
 }
-
 
 .refined-buttons {
     display: flex;

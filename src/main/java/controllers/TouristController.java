@@ -34,7 +34,7 @@ public class TouristController {
         return "add-attraction";
     }
 
-    @PostMapping("/attractions/add")
+    @PostMapping("/attractions/add") //cannot change to add due to "Add" button @add-attraction
     public String addAttraction(@ModelAttribute TouristAttraction touristAttraction) {
         touristService.saveAttraction(touristAttraction);
         return "redirect:/attractions";
@@ -65,8 +65,8 @@ public class TouristController {
             return "redirect:/attractions";
         }
         model.addAttribute("touristAttraction", attraction);
-        model.addAttribute("cities", touristService.getAllCities());
-        model.addAttribute("allTags", touristService.getAllTags());
+        model.addAttribute("Cities", touristService.getAllCities());
+        model.addAttribute("Tags", touristService.getAllTags());
         return "update-attraction";
     }
 
