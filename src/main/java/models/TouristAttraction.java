@@ -38,7 +38,6 @@ public class TouristAttraction {
         this.description = description;
     }
 
-
     public String getCity()
     {return city;}
 

@@ -51,7 +51,25 @@ public class TouristService {
                 .findFirst();
     }
 
+    //added error-handling for saving tourist attraction [Name, Description & City are REQUIRED [for @add-attraction + @update-attraction]]
     public void saveAttraction(TouristAttraction touristAttraction) {
-        touristRepository.addTouristAttraction(touristAttraction);
+        //touristRepository.addTouristAttraction(touristAttraction);
+        if(touristAttraction == null) {
+        throw new IllegalArgumentException("Tourist attraction cannot be null");
+        }
+        if(touristAttraction.getName() == null || touristAttraction.getName().isEmpty()) {
+            throw new IllegalArgumentException("Tourist attraction name cannot be null or empty");
+        }
+        if(touristAttraction.getCity() == null || touristAttraction.getCity().isEmpty()) {
+            throw new IllegalArgumentException("Tourist attraction city cannot be null or empty");
+        }
+        if(touristAttraction.getDescription() == null || touristAttraction.getDescription().isEmpty()) {
+            throw new IllegalArgumentException("Tourist attraction description cannot be null or empty");
+        }
+        try {
+            touristRepository.addTouristAttraction(touristAttraction);
+        } catch (Exception e) {
+            throw new RuntimeException("Error while saving tourist attraction", e);
+        }
     }
 }

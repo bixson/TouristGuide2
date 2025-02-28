@@ -1,6 +1,4 @@
 @import url('https://fonts.googleapis.com/css2?family=American+Typewriter:wght@700&family=Andale+Mono&display=swap');
-
-/* forgot this s*** */
 .admin-button {
     position: absolute;
     top: 20px;
@@ -24,7 +22,6 @@
     transform: scale(1.05);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
-
 
 body {
     font-family: 'Andale Mono', monospace, Arial, sans-serif;

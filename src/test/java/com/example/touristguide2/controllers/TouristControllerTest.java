@@ -21,7 +21,7 @@ import services.TouristService;
 
 
 import java.util.List;
-import java.util.ArrayList;
+
 
 
 @WebMvcTest(TouristController.class)
@@ -126,8 +126,8 @@ class TouristControllerTest {
                 .andExpect(status().isOk())
                 .andExpect(view().name("update-attraction"))
                 .andExpect(model().attributeExists("touristAttraction"))
-                .andExpect(model().attributeExists("cities"))
-                .andExpect(model().attributeExists("allTags"));
+                .andExpect(model().attributeExists("Cities"))
+                .andExpect(model().attributeExists("Tags"));
 
         verify(touristService, times(1)).getTouristAttraction(attractionName);
         verify(touristService, times(1)).getAllCities();
